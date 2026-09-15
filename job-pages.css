@@ -204,3 +204,61 @@ body.job-detail{padding-bottom:calc(78px + env(safe-area-inset-bottom));font-siz
 .jd-side-saved-link{display:flex;align-items:center;min-height:44px}.jd-form-success{grid-column:1/-1}
 
 @media(min-width:721px){.jd-cover{aspect-ratio:3.1;max-height:430px}.job-detail[data-job-id="1"] .jd-cover>img{object-position:center top!important}}
+
+/* Direct application: four visible contact fields, optional personal message. */
+.jd-apply-section{background:#fffefb;border:1px solid #cadbb6;border-radius:24px;padding:34px;box-shadow:0 14px 44px #1e422008;position:relative;overflow:hidden}
+.jd-apply-section:before{content:'';height:5px;position:absolute;top:0;left:0;right:0;background:linear-gradient(90deg,#12643e 0%,#c6f17b 80%)}
+.jd-application-heading{display:flex;align-items:center;gap:16px;margin-bottom:15px}
+.jd-application-heading .jd-kicker{margin-bottom:6px;letter-spacing:.09em}
+.jd-application-heading h2{margin:0;font-size:36px;line-height:1.15;text-wrap:initial}
+.jd-application-icon{width:52px;height:52px;border-radius:16px;background:#eaf5d8;display:grid;place-items:center;color:#14643d;flex:none;transform:rotate(-6deg)}
+.jd-application-icon svg{width:25px;height:25px;transform:rotate(-40deg)}
+.jd-application-intro{max-width:520px;margin:0 0 15px!important}
+.jd-application-benefits{display:flex;flex-wrap:wrap;gap:9px 20px;padding-bottom:23px;border-bottom:1px solid #e4eadb;color:#476943;font-size:11px}
+.jd-application-benefits span{display:flex;align-items:center;gap:6px}.jd-application-benefits svg{width:15px;height:15px;color:#206f43}
+.jd-form{display:flex;flex-direction:column;gap:18px;margin-top:23px}
+.jd-form[hidden],.jd-application-confirmation[hidden]{display:none}
+.jd-form .jd-form-caption{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:3px 12px;font-size:13px;font-weight:500;color:#203e29;margin:0;line-height:1.5}
+.jd-form-caption span{font-size:10px;font-weight:400;color:#647859}
+.jd-form-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px}
+.jd-form label{display:block;min-width:0;font-size:12px;font-weight:500;color:#2d4933}
+.jd-form input:not([type=checkbox]),.jd-form textarea{display:block;width:100%;border:1px solid #cfdac6;border-radius:10px;background:#f9fbf5;color:#183624;font:inherit;font-size:16px;min-height:54px;padding:13px 14px;margin-top:7px;box-shadow:0 2px 0 #1e422003;transition:border-color .15s,box-shadow .15s,background .15s}
+.jd-form input::placeholder,.jd-form textarea::placeholder{font-size:14px;color:#819079;font-weight:400;opacity:1}
+.jd-form input:focus,.jd-form textarea:focus{outline:0;border-color:#287447;background:#fff;box-shadow:0 0 0 3px #2e754416}
+.jd-form input[aria-invalid=true]{border-color:#b34133;background:#fffaf8}
+.jd-form textarea{resize:vertical;min-height:104px;max-height:260px;line-height:1.7}
+.jd-message{border:1px solid #dce5d1;background:#f6f9ef;border-radius:10px}
+.jd-message summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 15px;min-height:48px;list-style:none;font-size:12px;font-weight:500;cursor:pointer}
+.jd-message summary::-webkit-details-marker{display:none}.jd-message summary small{font-size:10px;font-weight:400;color:#657c56;margin-left:6px}
+.jd-message-plus{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#e0eecd;color:#315934;font-size:20px;line-height:1;flex:none;transition:transform .15s}.jd-message[open] .jd-message-plus{transform:rotate(45deg)}
+.jd-message>div{padding:0 15px 15px}.jd-message label{font-size:11px}
+.jd-form .jd-consent{display:flex;align-items:flex-start;gap:11px;font-size:11px;font-weight:400;line-height:1.75;color:#5c7151}
+.jd-form .jd-consent input{width:20px;height:20px;min-height:20px;flex:none;margin:1px 0 0;padding:0;accent-color:#17603c;cursor:pointer;border-radius:4px}
+.jd-consent a{text-decoration:underline;text-underline-offset:3px;color:#245d37}
+.jd-field-error{display:block;color:#a2372c;font-size:11px;font-weight:400;line-height:1.5;margin-top:6px}.jd-field-error[hidden]{display:none}
+.jd-form .jd-form-error-summary{color:#a2372c;background:#fff2ed;border:1px solid #efd6cc;font-size:12px;padding:10px 13px;border-radius:9px;margin:0}.jd-form-error-summary[hidden]{display:none}
+.jd-form #job-apply-submit{margin:0;min-height:56px;font-size:14px;border-radius:11px;padding-inline:19px}
+.jd-form .jd-form-note{font-size:10px;line-height:1.65;color:#718266;margin:-4px 0 0}
+.jd-application-confirmation{padding-top:26px}.jd-confirmation-icon{width:52px;height:52px;background:#d5efa8;border-radius:50%;display:grid;place-items:center;margin-bottom:20px}.jd-confirmation-icon svg{width:26px;height:26px}
+.jd-application-confirmation h3{font-size:29px;line-height:1.2;letter-spacing:-.035em;margin:0 0 13px}
+.jd-application-confirmation .jd-confirmation-note{font-size:12px;padding:12px 16px;border:1px solid #dbe6cb;border-radius:9px;background:#f4f8ec}
+.jd-application-confirmation .jd-secondary{color:#255634;border-color:#bfd0a9;margin-top:20px;justify-content:space-between}
+@media(min-width:721px) and (max-width:1100px){.jd-apply-section{padding:25px}.jd-form-fields{grid-template-columns:1fr}.jd-application-heading{gap:12px}.jd-application-heading h2{font-size:30px}.jd-application-icon{width:43px;height:43px}}
+@media(max-width:720px){.jd-apply-section{padding:26px 21px;border-radius:20px}.jd-application-heading{gap:12px}.jd-application-heading h2{font-size:30px}.jd-application-heading .jd-kicker{font-size:8px;line-height:1.6;letter-spacing:.05em}.jd-application-icon{width:43px;height:43px;border-radius:13px}.jd-application-intro{font-size:12px!important;line-height:1.8!important}.jd-application-benefits{font-size:10px;gap:7px 14px;padding-bottom:19px}.jd-form{gap:17px;margin-top:20px}.jd-form-fields{grid-template-columns:1fr;gap:16px}.jd-form .jd-form-caption{font-size:12px}.jd-form-caption span{font-size:10px}.jd-form input:not([type=checkbox]){min-height:52px}.jd-message summary{font-size:11px;padding:12px}.jd-message summary small{margin-left:4px;font-size:9px}.jd-form #job-apply-submit{font-size:13px;min-height:55px}.jd-form .jd-consent{font-size:10px}.jd-application-confirmation h3{font-size:25px}.job-detail:has(textarea:focus) .jd-mobile-dock{display:none}}
+@media(max-width:360px){.jd-apply-section{padding:24px 17px}.jd-application-heading h2{font-size:28px}.jd-application-benefits{font-size:9px;gap:6px 10px}.jd-application-icon{width:38px;height:38px}.jd-message summary{font-size:10px}}
+@media(max-width:720px){
+.jd-apply-section{padding:24px 20px}
+.jd-application-heading{margin-bottom:12px}.jd-application-intro{margin-bottom:12px!important}.jd-application-benefits{padding-bottom:16px}
+.jd-form{gap:14px;margin-top:18px}.jd-form .jd-form-caption{display:none}
+.jd-form-fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px}.jd-form-fields>label:nth-child(n+3){grid-column:1/-1}
+.jd-form input:not([type=checkbox]){min-height:50px;padding:11px 12px}.jd-form label{font-size:11px}.jd-form input::placeholder{font-size:13px}
+.jd-form .jd-consent{line-height:1.65}.jd-message summary{min-height:44px;padding:10px 12px}.jd-form #job-apply-submit{min-height:52px}
+.jd-mobile-dock.is-at-application{display:none}
+}
+@media(max-width:360px){.jd-apply-section{padding:22px 16px}.jd-form-fields{column-gap:10px}.jd-application-heading{gap:10px}}
+/* Job sections already reserve their own sticky-header offset. */
+html:has(body.job-detail){scroll-padding-top:0}
+.jd-message{padding:0;margin:0}
+.jd-message summary:after{content:none}
+/* Let the responsive image ratios determine height on smaller screens. */
+.jd-gallery img,.jd-related-card img{height:auto}

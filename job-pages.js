@@ -11,7 +11,33 @@
  $$('[data-gallery]').forEach(b=>b.addEventListener('click',()=>{$$('.jd-gallery figure').forEach(el=>el.hidden=el.id!==`gallery-${b.dataset.gallery}`);$$('[data-gallery]').forEach(el=>el.setAttribute('aria-pressed',el===b));}));
  $$('[data-share]').forEach(b=>b.addEventListener('click',async()=>{const url=new URL(location.href);url.hash='';url.search='';try{await navigator.clipboard.writeText(url.href);toast('Link zur Stelle kopiert.');}catch{$('#share-fallback').hidden=false;$('#share-url').value=url.href;$('#share-url').focus();$('#share-url').select();toast('Kopiere den angezeigten Link.');}}));
  const form=$('#job-apply-form');
- form.addEventListener('submit',event=>{event.preventDefault();if(!form.reportValidity())return;form.innerHTML='<div class="jd-form-success" tabindex="-1"><span aria-hidden="true">✓</span><h3>Dein erster Schritt. So einfach kann er sein.</h3><p>Du hast die Beispielbewerbung ausprobiert. Es wurde nichts versendet.</p><a href="05-zusammen-wachsen.html?design=e&ansicht=arbeitnehmer#jobs" class="jd-primary">Weitere Jobs entdecken <span aria-hidden="true">↗</span></a></div>';$('.jd-form-success').focus({preventScroll:true});$('#bewerben').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});$$('.jd-mobile-dock>a').forEach(a=>{a.textContent='Weitere Jobs entdecken ↗';a.href='05-zusammen-wachsen.html?design=e&ansicht=arbeitnehmer#jobs';});});
+ // This static reference never transmits or stores application data.
+ // Production integration must submit to the existing application backend and
+ // show confirmation only after that backend acknowledges the application.
+ form.noValidate=true;
+ const fields=[
+  {el:$('#applicant-first-name'),error:$('#first-name-error'),validate:el=>el.value.trim()?'':'Bitte gib deinen Vornamen ein.'},
+  {el:$('#applicant-last-name'),error:$('#last-name-error'),validate:el=>el.value.trim()?'':'Bitte gib deinen Nachnamen ein.'},
+  {el:$('#applicant-email'),error:$('#email-error'),validate:el=>el.value.trim()&&!el.validity.typeMismatch?'':'Bitte gib eine gültige E-Mail-Adresse ein.'},
+  {el:$('#applicant-phone'),error:$('#phone-error'),validate:el=>{const value=el.value.trim(),digits=value.replace(/\D/g,'');return /^(?:\+|00)?[\d\s()./\-]+$/.test(value)&&digits.length>=7&&digits.length<=15?'':'Bitte gib eine gültige Telefonnummer mit Vorwahl ein.';}},
+  {el:$('#applicant-privacy'),error:$('#privacy-error'),validate:el=>el.checked?'':'Bitte bestätige die AGB und Datenschutzbestimmungen.'}
+ ];
+ let submitted=false;
+ function validateField(field){const message=field.validate(field.el);field.error.textContent=message;field.error.hidden=!message;field.el.setAttribute('aria-invalid',String(Boolean(message)));return !message;}
+ fields.forEach(field=>{
+  field.el.addEventListener('blur',()=>{if(field.el.type!=='checkbox'&&(submitted||field.el.value))validateField(field);});
+  field.el.addEventListener(field.el.type==='checkbox'?'change':'input',()=>{if(submitted||field.el.hasAttribute('aria-invalid'))validateField(field);if(submitted&&fields.every(f=>!f.validate(f.el)))$('#application-errors').hidden=true;});
+ });
+ form.addEventListener('submit',event=>{
+  event.preventDefault();submitted=true;
+  const invalid=fields.filter(field=>!validateField(field));
+  if(invalid.length){$('#application-errors').textContent='Bitte prüfe die markierten Angaben.';$('#application-errors').hidden=false;invalid[0].el.focus();return;}
+  form.hidden=true;$('#application-confirmation').hidden=false;$('#application-confirmation').focus({preventScroll:true});
+  $('#bewerben').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+ });
+ $('#application-restart').addEventListener('click',()=>{form.reset();submitted=false;fields.forEach(f=>{f.el.removeAttribute('aria-invalid');f.error.hidden=true;f.error.textContent='';});$('#application-errors').hidden=true;$('.jd-message').open=false;$('#application-confirmation').hidden=true;form.hidden=false;$('#applicant-first-name').focus();});
  $('#job-apply-submit').disabled=false;
+ const dock=$('.jd-mobile-dock');
+ if(dock&&'IntersectionObserver' in window){new IntersectionObserver(entries=>dock.classList.toggle('is-at-application',entries[0].isIntersecting),{threshold:.12}).observe($('#bewerben'));}
  window.addEventListener('pageshow',sync);window.addEventListener('storage',e=>{if(e.key==='gc-design-saved-jobs')sync();});sync();
 })();
