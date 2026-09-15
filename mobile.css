@@ -1,0 +1,90 @@
+/* Content on demand. Primary actions and imagery remain in the page flow. */
+.e details.mobile-fold{padding:0;border:0;margin:0;border-radius:0;background:transparent;width:100%}
+.e .mobile-fold>summary,.e .mobile-more-jobs{display:none}
+.e .mobile-fold>.fold-content{padding:0}
+.e .rich-footer nav .fold-content{display:flex;flex-direction:column;align-items:flex-start}
+.e .rich-footer nav .fold-content>a,.e .rich-footer nav .fold-content>button{font:400 11px/1.7 var(--font, Poppins),Arial,sans-serif;color:#bdd0a9;text-align:left;padding:9px 0;min-height:35px;background:none}
+@media(max-width:720px){
+  .e .mobile-fold>summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:14px 16px;border:1px solid #c1dba3;border-radius:10px;background:#edf6dc;color:#183c27;font-size:12px;font-weight:600;line-height:1.5;list-style:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .e .mobile-fold>summary:after,.e .mobile-fold>summary::-webkit-details-marker{display:none}
+  .e .mobile-fold>summary:focus-visible,.e .mobile-more-jobs:focus-visible{outline:3px solid #126440;outline-offset:4px}
+  .fold-sign{position:relative;display:block;width:28px;height:28px;flex:none;border-radius:50%;background:#c6f17b;color:#173d28}
+  .fold-sign:before,.fold-sign:after{position:absolute;content:'';background:currentColor;border-radius:1px;left:8px;right:8px;height:2px;top:13px}
+  .fold-sign:after{transform:rotate(90deg);transition:transform .2s}
+  .mobile-fold[open]>summary .fold-sign:after,.mobile-more-jobs[aria-expanded=true] .fold-sign:after{transform:rotate(0)}
+  .mobile-fold .fold-open,.mobile-fold[open] .fold-closed{display:none}
+  .mobile-fold[open] .fold-open{display:inline}
+  .e .mobile-fold[open]>.fold-content{padding-top:18px}
+  /* A clear title, icon and explicit invitation replace three tall text cards. */
+  .e .refined-offers .offer{padding:0;min-height:0}
+  .e .refined-offers .offer-fold>summary{padding:18px;border:0;background:transparent;min-height:112px}
+  .offer-fold .fold-label{display:flex;gap:13px;align-items:center}
+  .fold-offer-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:9px;background:#eaf3dc;flex:none}
+  .fold-offer-icon svg{width:20px;height:20px}
+  .offer-fold .fold-label strong{font-size:17px;font-weight:600;letter-spacing:-.03em;line-height:1.25;display:block}
+  .offer-fold .fold-label small{display:block;font-weight:500;font-size:10px;color:#426635;margin-top:9px}
+  .e .offer-fold .fold-content>.offer-symbol,.e .offer-fold .fold-content>.offer-number,.e .offer-fold .fold-content>h3{display:none}
+  .e .offer-fold[open]>.fold-content{padding:0 18px 16px}
+  .e .refined-offers .offer p{margin-bottom:8px}
+  /* Show every package and price, with the detailed inclusions one tap away. */
+  .e .pricing-card{padding:20px;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:8px;align-content:start}
+  .e .package-top{grid-column:1/-1;margin-bottom:10px;min-height:19px}
+  .e .package-symbol{display:none}
+  .e .package-tag{font-size:9px}
+  .e .pricing-card>h3{grid-row:2;align-self:center;font-size:clamp(22px,6.67vw,26px);margin:0;letter-spacing:-.045em}
+  .e .package-price{grid-column:2;grid-row:2;gap:4px;align-self:center}
+  .e .package-purpose{grid-column:1/-1;grid-row:3;margin:12px 0;line-height:1.55}
+  .e .package-purpose span{margin-top:4px}
+  .e .package-amount{font-size:clamp(26px,8vw,34px)}
+  .e .package-currency{font-size:18px}
+  .e .package-price-unit{grid-column:1/-1;margin:0 0 3px;font-size:11px}
+  .e .package-tax{grid-column:1/-1;margin-bottom:12px;font-size:9px}
+  .e .package-commitment{grid-column:1/-1;padding:12px 0;gap:7px;min-height:0}
+  .e .package-select{grid-column:1/-1;margin:15px 0 10px;min-height:50px}
+  .e .package-fold{grid-column:1/-1}
+  .e .package-fold>summary{padding:12px;min-height:53px;font-size:11px}
+  .e .pricing-featured .package-fold>summary{border-color:#587747;background:#244933;color:#f1f8e8}
+  .e .pricing-featured .package-fold>summary:focus-visible{outline-color:#c6f17b}
+  .e .package-features h4{margin-bottom:12px}
+  .e .film-copy{padding:20px}
+  .e .film-copy>.eyebrow{display:none}
+  .e .film-copy h3{font-size:25px;margin-bottom:10px}
+  .e .film-copy p{font-size:11px;line-height:1.7;margin-bottom:5px}
+  .e .film-text-play{margin-top:0}
+  .e .instagram-heading{margin-bottom:20px}
+  .e .instagram-heading p{font-size:11px;line-height:1.7}
+  .e .instagram-profile{margin-top:17px}
+  .e .instagram-grid>li{flex-basis:78%}
+  .e .instagram-post-body{padding:15px}
+  .e .instagram-post h3{font-size:17px;margin-bottom:12px}
+  .e .instagram-follow{display:none}
+  .e .instagram-bottom{margin-top:6px}
+  /* Keep large job photos; show a definite count and full-width reveal control. */
+  .e .mobile-job-preview:not(.mobile-jobs-expanded)>.fusion-job:nth-child(n+3){display:none}
+  .e .mobile-more-jobs{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;padding:18px;margin-top:15px;background:#e4f2ce;border:1px solid #bdd699;border-radius:13px;color:#183c27;text-align:left}
+  .mobile-more-jobs strong{display:block;font-size:13px;font-weight:600}
+  .mobile-more-jobs small{display:block;font-size:10px;font-weight:400;margin-top:5px;line-height:1.6;color:#49653c}
+  .e .fusion-job{scroll-margin-top:88px}
+  /* Shorter FAQ introduction, with every question still visible. */
+  .e .faq-symbol{display:none}
+  .e .faq-intro>.eyebrow{margin-bottom:13px}
+  .e .faq-intro>p{margin-bottom:16px}
+  .e .answer-card summary{min-height:78px;padding:16px;gap:10px}
+  .e .answer-card summary small{display:none}
+  .e .faq-layout{gap:22px}
+  /* Compact navigation without losing the full sitemap. */
+  .e .footer-navigation{grid-template-columns:1fr;gap:0;padding:25px 0 0}
+  .e .footer-brand{margin-bottom:25px}
+  .e .footer-navigation nav>h3{display:none}
+  .e .footer-navigation nav{border-top:1px solid #405737}
+  .e .footer-fold>summary{border:0;border-radius:0;background:transparent;color:#e8f3da;padding:15px 0;min-height:62px;font-size:13px}
+  .e .footer-fold>summary:focus-visible{outline-color:#c6f17b;outline-offset:2px}
+  .e .footer-fold>summary .fold-sign{background:#304d2f;color:#c6f17b}
+  .e .footer-fold[open]>.fold-content{padding:0 0 17px}
+  .e .rich-footer nav .fold-content>a,.e .rich-footer nav .fold-content>button{font-size:12px;min-height:44px;padding:11px 0;width:100%}
+  .e .footer-professions{padding:0;border-top:1px solid #405737}
+  .e .footer-professions .fold-content>h3{display:none}
+  .e .footer-opening{padding-bottom:25px}
+  .e .footer-bottom{padding-top:14px}
+}
+@media(prefers-reduced-motion:reduce){.fold-sign:after{transition:none}}
