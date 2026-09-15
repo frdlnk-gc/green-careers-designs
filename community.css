@@ -41,7 +41,5 @@
 @media(prefers-reduced-motion:reduce){.community-map *{animation:none!important;transition:none!important}.community-current{stroke-dasharray:none;opacity:.12}.connected>.community-current{opacity:.3}.member-ring{scale:1!important}.film-play>span{transition:none}}
 
 /* Similar reading speed despite the larger client list. */
-.e .marquee-track{animation-duration:215s}.e .reverse .marquee-track{animation-duration:228s}
-@media(max-width:720px){.e .marquee-track{animation-duration:180s}.e .reverse .marquee-track{animation-duration:195s}}
 @media(max-width:720px){.community-copy .community-legend{justify-content:flex-start}.business-identity strong{font-size:10px}.member-label{font-size:9px}.community-whisper{display:none}}
 @media(max-width:360px){.business-identity strong{font-size:9px}.member-label{font-size:8px}}
