@@ -23,7 +23,6 @@ function resultsSection(){
   return `<section class="section results-section" id="ergebnisse" aria-labelledby="results-title"><div class="container">
     <div class="results-heading"><div><div class="eyebrow">ERGEBNISSE AUS UNSEREM NETZWERK</div><h2 id="results-title">Diese Kunden haben<br><em>Mitarbeiter eingestellt.</em></h2></div><div class="results-tally"><strong>${total}</strong><span>Einstellungen<br>in diesen <b>${gcResults.length} Kundenbeispielen</b></span></div></div>
     <div class="results-carousel" role="region" aria-roledescription="Karussell" aria-label="Erfolgsmeldungen unserer Kunden">
-      <div class="results-toolbar"><label class="result-choice"><span>Kundenfall auswählen</span><select id="result-customer">${gcResults.map((r,i)=>`<option value="${i}">${r.name}</option>`).join('')}</select></label><div class="result-controls"><span class="result-position"><strong id="result-number">01</strong> / ${gcResults.length}</span><button type="button" id="result-prev" aria-label="Vorheriges Ergebnis" aria-controls="results-track">${fi('arrow')}</button><button type="button" id="result-next" aria-label="Nächstes Ergebnis" aria-controls="results-track">${fi('arrow')}</button></div></div>
       <div class="results-track" id="results-track" tabindex="0" aria-label="Kundenfälle durchblättern. Mit den Pfeiltasten oder durch Wischen.">${gcResults.map((r,i)=>`<article class="result-slide" role="group" aria-roledescription="Folie" aria-label="${i+1} von ${gcResults.length}: ${r.name}" ${i?'inert aria-hidden="true"':''}>
         <div class="result-visual">${resultArtwork(r,'photo')}<span class="result-photo-tag">${fi('check')} Erfolgreich eingestellt</span></div>
         <div class="result-copy"><div class="result-company"><span class="result-logo-frame">${resultArtwork(r,'logo')}</span><div><span>${r.branch}</span><h3>${r.name}</h3></div></div>
@@ -31,7 +30,7 @@ function resultsSection(){
           <details class="result-details"><summary><span><span class="result-closed-label">Ergebnis im Detail</span><span class="result-open-label">Details einklappen</span></span><span class="result-plus" aria-hidden="true"></span></summary><div class="result-detail-body"><p class="result-full-company">${r.company}</p><ul>${r.hires.map(h=>`<li>${fi('check')} ${h}</li>`).join('')}</ul><p>${r.note}</p><a href="assets/results/${r.id}.png" target="_blank" rel="noopener">Erfolgsmeldung ansehen ${fi('up')}</a></div></details>
         </div></article>`).join('')}</div>
       <p class="sr-only" id="result-announcement" aria-live="polite" aria-atomic="true"></p>
-      <div class="results-bottom"><p><span class="results-swipe">Wischen oder mit den Pfeilen weiterblättern.</span><span class="results-desktop-hint">Sehen Sie, welche Stellen unsere Kunden besetzt haben.</span></p><a class="btn" href="#preise">Pakete und Preise ${fi('arrow')}</a></div>
+      <div class="results-bottom"><div class="result-controls"><span class="result-position"><strong id="result-number">01</strong> / ${gcResults.length}</span><button type="button" id="result-prev" aria-label="Vorheriges Ergebnis" aria-controls="results-track">${fi('arrow')}</button><button type="button" id="result-next" aria-label="Nächstes Ergebnis" aria-controls="results-track">${fi('arrow')}</button></div><a class="btn" href="#preise">Pakete und Preise ${fi('arrow')}</a></div>
     </div></div></section>`;
 }
 
@@ -40,7 +39,7 @@ function bindResults(){
   cleanupResults();
   const track=document.getElementById('results-track');
   if(!track)return;
-  const cards=[...track.children],select=document.getElementById('result-customer');
+  const cards=[...track.children];
   let active=0,frame,resizeFrame,lastWidth=track.clientWidth;
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   const step=()=>cards[1].offsetLeft-cards[0].offsetLeft;
@@ -54,7 +53,6 @@ function bindResults(){
     const changed=index!==active;
     active=index;
     cards.forEach((card,i)=>{card.inert=i!==active;card.setAttribute('aria-hidden',String(i!==active));if(changed&&i!==active)card.querySelector('details').open=false;});
-    select.value=String(active);
     document.getElementById('result-number').textContent=String(active+1).padStart(2,'0');
     if(changed){const r=gcResults[active];document.getElementById('result-announcement').textContent=`Ergebnis ${active+1} von ${cards.length}. ${r.name}: ${r.count} ${r.role} eingestellt.`;loadImage(active);loadImage((active+1)%cards.length);}
     fit();
@@ -71,7 +69,6 @@ function bindResults(){
   const onKey=e=>{if(e.target!==track||!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();go(e.key==='Home'?0:e.key==='End'?cards.length-1:active+(e.key==='ArrowRight'?1:-1));};
   document.getElementById('result-prev').onclick=()=>go(active-1);
   document.getElementById('result-next').onclick=()=>go(active+1);
-  select.onchange=()=>go(Number(select.value));
   track.addEventListener('scroll',onScroll,{passive:true});
   track.addEventListener('keydown',onKey);
   const onToggle=()=>fit();
