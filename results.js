@@ -20,7 +20,7 @@ function resultArtwork(item,kind){
 function resultsSection(){
   const total=gcResults.reduce((n,r)=>n+r.count,0);
   return `<section class="section results-section" id="ergebnisse" aria-labelledby="results-title"><div class="container">
-    <div class="results-heading"><div><div class="eyebrow">ERGEBNISSE AUS UNSEREM NETZWERK</div><h2 id="results-title">Aus Verbindungen<br><em>wird Verstärkung.</em></h2></div><div class="results-tally"><strong>${total}</strong><span>Einstellungen<br>in diesen <b>${gcResults.length} Kundenbeispielen</b></span></div></div>
+    <div class="results-heading"><div><div class="eyebrow">ERGEBNISSE AUS UNSEREM NETZWERK</div><h2 id="results-title">Diese Kunden haben<br><em>Mitarbeiter eingestellt.</em></h2></div><div class="results-tally"><strong>${total}</strong><span>Einstellungen<br>in diesen <b>${gcResults.length} Kundenbeispielen</b></span></div></div>
     <div class="results-carousel" role="region" aria-roledescription="Karussell" aria-label="Erfolgsmeldungen unserer Kunden">
       <div class="results-toolbar"><label class="result-choice"><span>Kundenfall auswählen</span><select id="result-customer">${gcResults.map((r,i)=>`<option value="${i}">${r.name}</option>`).join('')}</select></label><div class="result-controls"><span class="result-position"><strong id="result-number">01</strong> / ${gcResults.length}</span><button type="button" id="result-prev" aria-label="Vorheriges Ergebnis" aria-controls="results-track">${fi('arrow')}</button><button type="button" id="result-next" aria-label="Nächstes Ergebnis" aria-controls="results-track">${fi('arrow')}</button></div></div>
       <div class="results-track" id="results-track" tabindex="0" aria-label="Kundenfälle durchblättern. Mit den Pfeiltasten oder durch Wischen.">${gcResults.map((r,i)=>`<article class="result-slide" role="group" aria-roledescription="Folie" aria-label="${i+1} von ${gcResults.length}: ${r.name}" ${i?'inert aria-hidden="true"':''}>
@@ -30,7 +30,7 @@ function resultsSection(){
           <details class="result-details"><summary><span><span class="result-closed-label">Ergebnis im Detail</span><span class="result-open-label">Details einklappen</span></span><span class="result-plus" aria-hidden="true"></span></summary><div class="result-detail-body"><p class="result-full-company">${r.company}</p><ul>${r.hires.map(h=>`<li>${fi('check')} ${h}</li>`).join('')}</ul><p>${r.note}</p><a href="assets/results/${r.id}.png" target="_blank" rel="noopener">Erfolgsmeldung ansehen ${fi('up')}</a></div></details>
         </div></article>`).join('')}</div>
       <p class="sr-only" id="result-announcement" aria-live="polite" aria-atomic="true"></p>
-      <div class="results-bottom"><p><span class="results-swipe">Wischen oder mit den Pfeilen weiterblättern.</span><span class="results-desktop-hint">Zehn Betriebe. Unterschiedliche Aufgaben. Neue Kollegen.</span></p><a class="btn" href="#preise">Pakete und Preise ${fi('arrow')}</a></div>
+      <div class="results-bottom"><p><span class="results-swipe">Wischen oder mit den Pfeilen weiterblättern.</span><span class="results-desktop-hint">Sehen Sie, welche Stellen unsere Kunden besetzt haben.</span></p><a class="btn" href="#preise">Pakete und Preise ${fi('arrow')}</a></div>
     </div></div></section>`;
 }
 
