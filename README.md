@@ -17,3 +17,7 @@ Es handelt sich um einen Designprototyp. Anfragen und Bewerbungen werden nicht v
 Alle Dateien werden statisch über GitHub Pages ausgeliefert. Schriften, Bilder und Logos liegen lokal; das Arbeitgebervideo und sein Vorschaubild werden von der bestehenden Green-Careers-Website eingebunden; die Schriftlizenzen befinden sich im Assets-Ordner. Suchmaschinen sind durch robots.txt und noindex vom Indexieren ausgeschlossen bzw. zum Nicht-Indexieren aufgefordert.
 
 Das neue Teambild ist ein mit dem integrierten Imagegen-Werkzeug generiertes Beispielmotiv. Die Profile im Netzwerk sind illustrativ.
+
+## Stellenseiten (Version 13)
+
+Die Arbeitnehmeransicht enthält große Betriebsbilder. Vier eigenständige HTML-Stellenseiten sind direkt erreichbar und teilbar. Merkliste und Filter bleiben bei der Navigation erhalten. Die Inhalte sind fiktive Designbeispiele; der Bewerbungsablauf überträgt keine Daten.
