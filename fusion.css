@@ -23,3 +23,41 @@ html:has(body.e){scroll-padding-top:102px}@media(max-width:720px){html:has(body.
 @media(min-width:721px){.e.employer .fusion-photo{width:70%;left:auto;object-position:50% center;border-top-left-radius:0;border-bottom-left-radius:0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 32%);mask-image:linear-gradient(90deg,transparent,#000 32%)}.e.employer .fusion-stage{background:#193a23}.e.employer .fusion-tint{background:linear-gradient(90deg,#193a23 5%,#193a2380 45%,#193a2305 80%)}.e.employer .fusion-headline h1{font-size:clamp(39px,3.45vw,54px);max-width:410px}.e.employer .fusion-headline{padding-top:59px;padding-bottom:130px}.e.employer .fusion-overline{max-width:none}.e.employer .fusion-headline>p{font-size:12px;max-width:250px}}
 body.e #job-list.fusion-list{grid-template-columns:minmax(0,1fr)}
 @media(min-width:721px){.e .fusion-list .fusion-job{min-height:148px}.e .fusion-list .job-footer{padding-right:58px}.e .fusion-list .job-footer>button{position:absolute;right:22px;bottom:18px}}
+
+/* Tablet: give the people room and keep the primary navigation available. */
+@media(min-width:721px) and (max-width:960px){
+ .e .studio{display:block;min-height:44px;padding:0 24px}
+ .e .studio>.studio-name,.e .studio>.variants,.e .studio>.concept-trigger{display:none}
+ .e #mobile-compare{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:44px;padding:0;background:none;color:#d5e7d9;font-size:11px}
+ .e #mobile-compare span{color:#b3cebb;font-size:10px}
+ .e .nav{gap:16px}.e .navlinks{display:flex;gap:14px}.e .navlinks a{font-size:10px;white-space:nowrap}
+ .e .navright{gap:13px;font-size:10px}.e .navright .nav-cta{padding-inline:12px;font-size:10px}
+ .e .fusion-hero-grid{grid-template-columns:minmax(0,1fr);gap:16px}
+ .e .fusion-stage{min-height:440px;height:440px}
+ .e .fusion-headline,.e.employer .fusion-headline{padding:38px 32px 0}
+ .e .fusion-overline,.e.employer .fusion-overline{margin:0 0 20px;max-width:none}
+ .e .fusion-headline h1,.e.employer .fusion-headline h1{font-size:52px;max-width:360px;margin-bottom:19px}
+ .e .fusion-headline>p{font-size:12px;max-width:280px;margin:0}
+ .e .fusion-image-link{display:none}
+ .e .fusion-photo{object-position:69% center}
+ .e .fusion-sticker{right:18px;top:22px}
+ .e .fusion-proof,.e.employer .fusion-proof{left:32px;bottom:22px}
+ .e.employer .desktop-headline{display:none}.e.employer .mobile-headline{display:block}
+ .e .fusion-search{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:6px 28px;padding:26px 28px;align-items:start}
+ .e .fusion-search-top,.e .fusion-search-footer{display:none}
+ .e .fusion-search h2{grid-column:1;grid-row:1;font-size:30px;margin:2px 0 4px;padding:0}
+ .e .fusion-search h2 br{display:none}
+ .e .fusion-search>p:not(.hero-price-hint){grid-column:1;grid-row:2;font-size:12px;margin:0;max-width:230px}
+ .e .fusion-form{grid-column:2;grid-row:1/4;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:10px}
+ .e .fusion-form .btn{grid-column:1/-1}
+ .e .fusion-field input{font-size:16px}
+ .e .fusion-field input::placeholder{font-size:12px}
+ .e .fusion-search-help{grid-column:2;grid-row:4;margin:0;font-size:10px}
+ .e.employer .employer-quick{grid-column:2;grid-row:1;margin:0}
+ .e.employer #start-employer{grid-column:2;grid-row:2;justify-content:space-between;width:100%}
+ .e.employer .hero-price-hint{grid-column:1;grid-row:3;margin:5px 0 0}
+ .e.employer .fusion-search-help{grid-row:3;margin:0;min-height:44px}
+ .e .fusion-shortcuts{flex-wrap:wrap}.e .fusion-shortcuts>span{width:auto}
+}
+@media(max-width:720px){.e #mobile-compare,.e .studio{min-height:44px}.e.employer a.fusion-search-help{min-height:44px}}
+@media(min-width:961px) and (max-width:1300px){.e.worker .fusion-photo{object-position:20% center}}
