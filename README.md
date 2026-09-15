@@ -21,3 +21,7 @@ Das neue Teambild ist ein mit dem integrierten Imagegen-Werkzeug generiertes Bei
 ## Stellenseiten (Version 13)
 
 Die Arbeitnehmeransicht enthält große Betriebsbilder. Vier eigenständige HTML-Stellenseiten sind direkt erreichbar und teilbar. Merkliste und Filter bleiben bei der Navigation erhalten. Die Inhalte sind fiktive Designbeispiele; der Bewerbungsablauf überträgt keine Daten.
+
+## Instagram (Version 14)
+
+Vier ausgewählte veröffentlichte Posts von @greencareers.de stehen vor den FAQ in der Arbeitnehmer- und Arbeitgeberansicht. Originalmotive werden lokal geladen; jeder Beitrag und das Profil sind direkt verlinkt. Mobile: horizontal durchblättern, Touch und Pfeiltasten/Buttons. Die Auswahl ist redaktionell, kein automatisch aktualisierter Live-Feed. Postdaten: `instagram.js`, Gestaltung: `instagram.css`.
